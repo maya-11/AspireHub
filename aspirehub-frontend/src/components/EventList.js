@@ -1,24 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function EventList() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-    // This will eventually fetch events from the backend
-    setEvents([
-      { title: "Tech Conference 2024", date: "Jan 15, 2024" },
-      { title: "AI Workshop", date: "Feb 10, 2024" },
-    ]);
-  }, []);
+  // Replace with actual data fetching logic
+  const events = [
+    { id: 1, title: "Event 1" },
+    { id: 2, title: "Event 2" },
+    // Add more events as needed
+  ];
 
   return (
     <div>
-      <h2>Upcoming Events</h2>
+      <h1>Event List</h1>
       <ul>
-        {events.map((event, index) => (
-          <li key={index}>
-            {event.title} - {event.date}
-          </li>
+        {events.map((event) => (
+          <li key={event.id}>{event.title}</li>
         ))}
       </ul>
     </div>

@@ -4,58 +4,42 @@ function ProfileForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    skills: "",
-    bio: "",
+    // Add other form fields as needed
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Profile Data:", formData);
-    // Here, you would typically send formData to the backend
+    // Handle form submission logic
+    console.log(formData);
   };
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name:</label>
+      <label>
+        Name:
         <input
           type="text"
           name="name"
           value={formData.name}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label>Email:</label>
+      </label>
+      <label>
+        Email:
         <input
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label>Skills:</label>
-        <input
-          type="text"
-          name="skills"
-          value={formData.skills}
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Bio:</label>
-        <textarea
-          name="bio"
-          value={formData.bio}
-          onChange={handleChange}
-        ></textarea>
-      </div>
-      <button type="submit">Create Profile</button>
+      </label>
+      {/* Add more fields as needed */}
+      <button type="submit">Submit</button>
     </form>
   );
 }

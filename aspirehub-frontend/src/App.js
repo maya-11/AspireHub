@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ProfileForm from "./components/ProfileForm";
 import MentorList from "./components/MentorList";
@@ -11,12 +11,12 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/profile" component={ProfileForm} />
-        <Route path="/mentors" component={MentorList} />
-        <Route path="/events" component={EventList} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<ProfileForm />} />
+        <Route path="/mentors" element={<MentorList />} />
+        <Route path="/events" element={<EventList />} />
+      </Routes>
     </Router>
   );
 }
